@@ -12,6 +12,14 @@ export default defineComponent({
       type: String as PropType<Genres>,
       required: true,
     },
+    className: {
+      type: String as PropType<string>,
+      required: true,
+    },
+    withNavButtons: {
+      type: Boolean as PropType<boolean>,
+      required: true,
+    },
   },
 
   setup(props) {
@@ -47,10 +55,11 @@ export default defineComponent({
 <template>
   <div class="flex w-full flex-col h-[400px] relative">
     <h3 class="text-white font-bold text-2xl my-5">{{ filter }}</h3>
-    <div class="shows" ref="scrollEl">
+    <div :class="className" ref="scrollEl">
       <button
         class="flex flex-col absolute z-30 top-0 left-0 bottom-0 bg-black/90 p-3 items-center justify-center opacity-0 hover:opacity-100 transition"
         @click="scrollLeft()"
+        v-if="withNavButtons"
       >
         <div class="text-3xl text-white">{{ '<' }}</div>
       </button>
@@ -60,13 +69,16 @@ export default defineComponent({
         class="show-card"
       >
         <NuxtLink :to="`/shows/${show.id}`">
-          <img
-            :src="show.image.medium"
-            :alt="show.name"
-            class="rounded-lg shadow-md w-full"
-            width="232"
-            height="376"
-          />
+          <div v-if="show.image">
+            <img
+              :src="show.image.medium"
+              :alt="show.name"
+              class="rounded-lg shadow-md w-full"
+              width="232"
+              height="376"
+            />
+          </div>
+
           <h2 class="text-lg font-bold mt-2">{{ show.name }}</h2>
         </NuxtLink>
         <span class="relative my-5 z-20">
@@ -76,6 +88,7 @@ export default defineComponent({
       <button
         class="flex flex-col absolute z-30 top-0 right-0 bottom-0 bg-black/90 p-3 items-center justify-center opacity-0 hover:opacity-100 transition"
         @click="scrollRight()"
+        v-if="withNavButtons"
       >
         <div class="text-3xl text-white">{{ '>' }}</div>
       </button>
