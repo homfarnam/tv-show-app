@@ -1,3 +1,7 @@
+interface SearchedShowType {
+  score: number
+  show: ShowsTypes
+}
 interface ShowsTypes {
   id: number
   url: string
@@ -18,7 +22,7 @@ interface ShowsTypes {
   webChannel?: any
   dvdCountry?: any
   externals: External
-  image: Image
+  image: Image | null
   summary: string
   updated: number
   _links: _link
@@ -94,4 +98,4 @@ type Genres =
   | 'War'
   | 'Sports'
 
-export { ShowsTypes, Genres }
+export { ShowsTypes, Genres, SearchedShowType }
