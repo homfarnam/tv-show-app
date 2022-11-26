@@ -16,7 +16,18 @@ if (!show) {
   <div class="w-full h-full">
     <div class="flex items-center justify-center h-full">
       <div class="w-1/2 flex flex-col items-center justify-center h-full">
-        <img :src="show.image.original" :alt="show.name" class="w-2/3" />
+        <div v-if="show.image">
+          <img :src="show.image.original" :alt="show.name" class="w-2/3" />
+        </div>
+        <div v-else>
+          <img
+            src="/placeholder.png"
+            alt="placeholder"
+            class="rounded-lg shadow-md w-full"
+            width="230"
+            height="370"
+          />
+        </div>
       </div>
       <div
         class="w-1/2 flex flex-col gap-5 space-y-5 items-start justify-start text-white h-full"
