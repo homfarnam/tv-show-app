@@ -1,42 +1,67 @@
-# Nuxt 3 Minimal Starter
+# TV show app
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+It's a frontend app that use tvmaze api to show series and movies.
+ 
+See demo **[here](https://tv-show-app-eight.vercel.app/)** .
 
-## Setup
 
-Make sure to install the dependencies:
+## Installation
+
+You can install the dependencies with these commands.
+
+npm:
 
 ```bash
-# yarn
-yarn install
-
-# npm
 npm install
-
-# pnpm
-pnpm install --shamefully-hoist
 ```
 
-## Development Server
+yarn:
 
-Start the development server on http://localhost:3000
+```bash
+yarn
+```
+
+## Deployment
+
+To Start this project run
+
+npm:
 
 ```bash
 npm run dev
 ```
 
-## Production
-
-Build the application for production:
+yarn:
 
 ```bash
-npm run build
+yarn dev
 ```
+ 
 
-Locally preview production build:
+## 🧰 Libraries and tools
 
-```bash
-npm run preview
-```
+- ✅ Programming Language: **JavaScript, Typescript**
+- ✅ Typecheck: **[Typescript](https://www.typescriptlang.org/)**
+- ✅ Dom Manipulation: **[Vue JS](https://vuejs.org/), [Nuxt JS](https://nuxt.com/)**
+- ✅ CSS Framework: **[Tailwind CSS](https://tailwindcss.com/)**
+- ✅ Styling: **[SCSS](https://www.npmjs.com/package/sass)**
+- ✅ Code Quality: **[Prettier](https://prettier.io/)**
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### Usage of some packages
+
+
+- **[Tailwind CSS](https://tailwindcss.com/)**: For styling the app.
+- **[SASS](https://www.npmjs.com/package/sass)**: For compiling scss files to css files.
+- **[Nuxt JS](https://nuxt.com/)**: For compiling scss files to css files.
+ 
+
+## 🪝 Composables
+
+In `composables` folder you find two functions to get shows data and searched data.
+
+## RoadAhead
+
+If it was a real task and project, I could create CI/CD and some more tests like cypress for that.
+
+
+
