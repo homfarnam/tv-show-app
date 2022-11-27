@@ -13,11 +13,11 @@ if (!show) {
 </script>
 
 <template>
-  <div class="w-full h-full">
-    <div class="flex items-center justify-center h-full">
-      <div class="w-1/2 flex flex-col items-center justify-center h-full">
-        <div v-if="show.image">
-          <img :src="show.image.original" :alt="show.name" class="w-2/3" />
+  <div class="show">
+    <div class="show__container">
+      <div class="show__container__image">
+        <div v-if="show.image" class="w-full mx-auto flex justify-center">
+          <img :src="show.image.original" :alt="show?.name" class="w-2/3" />
         </div>
         <div v-else>
           <img
@@ -29,39 +29,42 @@ if (!show) {
           />
         </div>
       </div>
-      <div
-        class="w-1/2 flex flex-col gap-5 space-y-5 items-start justify-start text-white h-full"
-      >
-        <h3 class="text-3xl font-bold">{{ show.name }}</h3>
-        <div v-html="show.summary" class="text-justify pr-5 w-1/2"></div>
+      <div class="show__container__details">
+        <h3>{{ show.name }}</h3>
+        <div
+          v-html="show.summary"
+          class="show__container__details--description"
+        ></div>
 
-        <div class="flex items-center gap-5 text-white/50">
+        <div class="show__container__details--item">
           <span>Released</span>
           <span>{{ show.premiered }}</span>
         </div>
-        <div class="flex items-center gap-5 text-white/50">
+        <div v-if="show.network" class="show__container__details--item">
           <span>Network</span>
           <span>{{ show.network.name }}</span>
         </div>
 
-        <div class="flex items-center gap-5 text-white/50">
+        <div class="show__container__details--item">
           <span>Genre</span>
           <div v-for="item in show.genres" :key="item">
-            <span class="bg-gray-700 rounded-lg px-4 py-1">{{ item }}</span>
+            <span class="show__container__details--item--genres">{{
+              item
+            }}</span>
           </div>
         </div>
 
-        <div class="flex items-center gap-5 text-white/50">
+        <div class="show__container__details--item">
           <span>Language</span>
           <span>{{ show.language }}</span>
         </div>
 
-        <div class="flex flex-col items-start gap-2 text-white/50">
+        <div class="show__container__details--rating">
           <span>Rating</span>
           <StarsRate :value="show.rating.average" />
         </div>
 
-        <div class="flex items-center gap-5 text-white/50">
+        <div class="show__container__details--item">
           <span>Status</span>
           <span>{{ show.status }}</span>
         </div>

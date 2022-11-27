@@ -53,44 +53,54 @@ export default defineComponent({
 <style scoped lang="scss"></style>
 
 <template>
-  <div class="flex w-full flex-col h-[400px] relative">
-    <h3 class="text-white font-bold text-2xl my-5">{{ filter }}</h3>
+  <div class="allShows">
+    <h3 class="allShows--title">{{ filter }}</h3>
     <div :class="className" ref="scrollEl">
       <button
-        class="flex flex-col absolute z-30 top-0 left-0 bottom-0 bg-black/90 p-3 items-center justify-center opacity-0 hover:opacity-100 transition"
+        class="allShows--scrollLeft"
         @click="scrollLeft()"
         v-if="withNavButtons"
       >
-        <div class="text-3xl text-white">{{ '<' }}</div>
+        <span>{{ '<' }}</span>
       </button>
       <article
         v-for="show in data.slice(0, 20)"
         :key="show.id"
-        class="show-card"
+        class="allShows__showCard"
       >
         <NuxtLink :to="`/shows/${show.id}`">
           <div v-if="show.image">
             <img
               :src="show.image.medium"
               :alt="show.name"
-              class="rounded-lg shadow-md w-full"
+              class="allShows__showCard--image"
               width="232"
               height="376"
             />
           </div>
 
-          <h2 class="text-lg font-bold mt-2">{{ show.name }}</h2>
+          <div v-else>
+            <img
+              src="/placeholder.png"
+              alt="placeholder"
+              class="allShows__showCard--image"
+              width="232"
+              height="376"
+            />
+          </div>
+
+          <h3>{{ show.name }}</h3>
         </NuxtLink>
-        <span class="relative my-5 z-20">
+        <span class="allShows__showCard--rate">
           <StarsRate :value="show.rating.average" />
         </span>
       </article>
       <button
-        class="flex flex-col absolute z-30 top-0 right-0 bottom-0 bg-black/90 p-3 items-center justify-center opacity-0 hover:opacity-100 transition"
+        class="allShows--scrollRight"
         @click="scrollRight()"
         v-if="withNavButtons"
       >
-        <div class="text-3xl text-white">{{ '>' }}</div>
+        <span>{{ '>' }}</span>
       </button>
     </div>
   </div>
