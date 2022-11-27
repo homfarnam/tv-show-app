@@ -1,0 +1,39 @@
+.allShows {
+  @apply flex w-full flex-col h-[400px] relative;
+
+  &--title {
+    @apply text-white font-bold text-2xl my-5;
+  }
+
+  &--scrollLeft {
+    @apply flex flex-col absolute z-30 top-0 left-0 bottom-0 bg-black/90 p-3 items-center justify-center opacity-20 hover:opacity-100 transition;
+  }
+
+  &--scrollRight {
+    @apply flex flex-col absolute z-30 top-0 right-0 bottom-0 bg-black/90 p-3 items-center justify-center opacity-20 hover:opacity-100 transition;
+    span {
+      @apply text-3xl text-white;
+    }
+  }
+
+  &__showCard {
+    @apply flex flex-1 flex-col items-center justify-center relative text-white;
+    @apply border-gray-800 border-2 p-3 h-full cursor-pointer;
+
+    h3 {
+      @apply text-lg font-bold mt-2;
+    }
+
+    &--rate {
+      @apply relative my-5 z-20;
+    }
+
+    &--image {
+      @apply rounded-lg shadow-md w-full;
+    }
+  }
+}
+
+.shows {
+  @apply flex h-auto flex-row items-center gap-5 overflow-x-auto;
+}

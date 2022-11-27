@@ -1,0 +1,35 @@
+.search {
+  @apply w-full h-full;
+
+  &__searchBar {
+    @apply flex items-center text-white gap-5;
+
+    input {
+      @apply p-2 w-[300px] rounded-md text-black outline-none;
+    }
+  }
+
+  &__shows {
+    @apply text-white w-full h-full py-10 flex flex-col justify-center  items-center gap-10;
+
+    @screen md {
+      @apply flex-row flex-wrap;
+    }
+
+    &--realImage {
+      @apply rounded-lg shadow-md w-full;
+    }
+
+    &--placeholderImage {
+      @apply rounded-lg shadow-md w-11/12;
+    }
+
+    h3 {
+      @apply text-lg font-bold mt-2;
+    }
+
+    &--rating {
+      @apply relative flex my-5 z-20;
+    }
+  }
+}

@@ -1,9 +1,3 @@
-.show-card {
-  @apply flex flex-1 flex-col items-center justify-center relative text-white;
-  @apply border-gray-800 border-2 p-3 h-full cursor-pointer;
-  width: 400px !important;
-}
-
-.shows {
-  @apply flex h-auto flex-row items-center gap-5 overflow-x-auto;
-}
+@import './moviePage.scss';
+@import './shows.scss';
+@import './search.scss';
