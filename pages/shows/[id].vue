@@ -36,16 +36,20 @@ if (!show) {
           class="show__container__details--description"
         ></div>
 
-        <div class="show__container__details--item">
+        <div v-if="show.premiered" class="show__container__details--item">
           <span>Released</span>
           <span>{{ show.premiered }}</span>
+        </div>
+        <div v-if="show.ended" class="show__container__details--item">
+          <span>Ended</span>
+          <span>{{ show.ended }}</span>
         </div>
         <div v-if="show.network" class="show__container__details--item">
           <span>Network</span>
           <span>{{ show.network.name }}</span>
         </div>
 
-        <div class="show__container__details--item">
+        <div v-if="show.genres" class="show__container__details--item">
           <span>Genre</span>
           <div v-for="item in show.genres" :key="item">
             <span class="show__container__details--item--genres">{{
@@ -54,17 +58,17 @@ if (!show) {
           </div>
         </div>
 
-        <div class="show__container__details--item">
+        <div v-if="show.language" class="show__container__details--item">
           <span>Language</span>
           <span>{{ show.language }}</span>
         </div>
 
-        <div class="show__container__details--rating">
+        <div v-if="show.rating" class="show__container__details--rating">
           <span>Rating</span>
           <StarsRate :value="show.rating.average" />
         </div>
 
-        <div class="show__container__details--item">
+        <div v-if="show.status" class="show__container__details--item">
           <span>Status</span>
           <span>{{ show.status }}</span>
         </div>
